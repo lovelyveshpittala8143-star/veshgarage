@@ -125,7 +125,10 @@ else:
             try:
                 supabase.auth.sign_in_with_otp({
                     "email": email,
-                    "options": {"data": {"username": username}}
+                    "options": {
+                        "data": {"username": username},
+                        "email_redirect_to": "https://veshgarage-uokcxr1bytjdq4s7x4tgbvg.streamlit.app"
+                    }
                 })
                 st.success(f"Magic link sent to {email}!")
                 st.info("**For testing:** Go to Supabase → Authentication → Users → Click 3 dots → Generate confirmation link → Open link")
